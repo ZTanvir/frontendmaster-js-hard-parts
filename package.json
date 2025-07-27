@@ -1,0 +1,23 @@
+{
+  "name": "frontendmaster-js-hard-parts",
+  "version": "1.0.0",
+  "description": "##Files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZTanvir/frontendmaster-js-hard-parts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZTanvir/frontendmaster-js-hard-parts/issues"
+  },
+  "homepage": "https://github.com/ZTanvir/frontendmaster-js-hard-parts#readme",
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}
