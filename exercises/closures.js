@@ -18,4 +18,20 @@ function map(array, callback) {
   return numbers;
 }
 
-export { addTwo, addS, map };
+// Challenge 4: Custom ForEach
+
+function foreach(array = [], callback) {
+  // let output = [];
+  //  array.forEach((item) => output.push(callback(item)));
+  array.forEach((item) => callback(item));
+  // return output;
+}
+
+// Extension 1: mapWith
+function mapWith(array, callback) {
+  let output = [];
+  foreach(array, (el) => output.push(callback(el)));
+  return output;
+}
+
+export { addTwo, addS, map, foreach, mapWith };
