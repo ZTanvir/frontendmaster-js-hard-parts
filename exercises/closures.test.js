@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { addS, addTwo, map, foreach, mapWith } from "./closures";
+import { addS, addTwo, map, foreach, mapWith, reduce } from "./closures";
 
 describe("Add two with input", () => {
   test("add two", () => {
@@ -42,5 +42,16 @@ describe("extension 1", () => {
   });
   test("make array not upercase", () => {
     expect(mapWith(["A", "B", "c"], toLowerCase)).not.toEqual(["A", "B", "c"]);
+  });
+});
+describe("extension 2", () => {
+  const addition = (input, increaseBy) => increaseBy + input;
+  const subtraction = (input, decreaseBy) => decreaseBy - input;
+
+  test("Addition total", () => {
+    expect(reduce([1, 2, 3, 4], addition, 0)).toBe(10);
+  });
+  test("Subtract total", () => {
+    expect(reduce([1, 2, 3, 4], subtraction, 0)).toBe(-10);
   });
 });

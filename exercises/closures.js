@@ -33,5 +33,13 @@ function mapWith(array, callback) {
   foreach(array, (el) => output.push(callback(el)));
   return output;
 }
+// Extension 2: reduce
+function reduce(array = [], callback, initialValue) {
+  let result = initialValue;
+  array.forEach((item) => {
+    result = callback(item, result);
+  });
+  return result;
+}
 
-export { addTwo, addS, map, foreach, mapWith };
+export { addTwo, addS, map, foreach, mapWith, reduce };
