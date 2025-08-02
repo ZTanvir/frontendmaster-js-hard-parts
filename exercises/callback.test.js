@@ -9,6 +9,7 @@ import {
   intersection,
   union,
   objOfMatched,
+  multiMap,
 } from "./callback";
 
 describe("Add two with input", () => {
@@ -152,5 +153,12 @@ describe("extension 5 obj matched", () => {
       hi: "HI",
       bye: "BYE",
     });
+  });
+});
+describe("extension 6 multiMap", () => {
+  test("object matched with callback conditions", () => {
+    expect(
+      multiMap(["food"], [(str) => str.toUpperCase(), (str) => str + str])
+    ).toEqual({ food: ["FOOD", "foodfood"] });
   });
 });

@@ -86,6 +86,21 @@ function objOfMatched(keysArray = [], valuesArray = [], callback) {
   return matched;
 }
 
+// Extension 6: multiMap
+
+function multiMap(array = [], callbackArray = []) {
+  const mappedObj = {};
+  for (let i = 0; i < array.length; i++) {
+    const mappedValues = [];
+    for (let j = 0; j < callbackArray.length; j++) {
+      const newValue = callbackArray[j](array[i]);
+      mappedValues.push(newValue);
+    }
+    mappedObj[array[i]] = mappedValues;
+  }
+  return mappedObj;
+}
+
 export {
   addTwo,
   addS,
@@ -96,4 +111,5 @@ export {
   intersection,
   union,
   objOfMatched,
+  multiMap,
 };
