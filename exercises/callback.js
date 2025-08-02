@@ -56,7 +56,7 @@ function intersection(arrays = [[], []]) {
       }
     }
     if (isElementIntersect) {
-      // when item avilable in remaining arrays
+      // when item available in remaining arrays
       intersectionElements.push(arrays[0][i]);
     }
   }
@@ -72,4 +72,28 @@ function union(arrays = [[], []]) {
   });
 }
 
-export { addTwo, addS, map, foreach, mapWith, reduce, intersection, union };
+// Extension 5: objOfMatches
+
+function objOfMatched(keysArray = [], valuesArray = [], callback) {
+  let matched = {};
+  for (let i = 0; i < keysArray.length; i++) {
+    for (let j = 0; j < valuesArray.length; j++) {
+      if (callback(keysArray[i]) === callback(valuesArray[j])) {
+        matched[keysArray[i]] = valuesArray[j];
+      }
+    }
+  }
+  return matched;
+}
+
+export {
+  addTwo,
+  addS,
+  map,
+  foreach,
+  mapWith,
+  reduce,
+  intersection,
+  union,
+  objOfMatched,
+};

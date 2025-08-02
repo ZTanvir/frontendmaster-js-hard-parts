@@ -8,6 +8,7 @@ import {
   reduce,
   intersection,
   union,
+  objOfMatched,
 } from "./callback";
 
 describe("Add two with input", () => {
@@ -123,5 +124,33 @@ describe("extension 4 union", () => {
         [5, 6],
       ])
     ).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+});
+
+describe("extension 5 obj matched", () => {
+  const convertUppercase = (item) => {
+    return item.toUpperCase();
+  };
+
+  const convertLowerCase = (item) => {
+    return item.toLowerCase();
+  };
+
+  test("object matched when callback is uppercase", () => {
+    expect(
+      objOfMatched(["hi", "bye"], ["HI", "BYE"], convertUppercase)
+    ).toEqual({
+      hi: "HI",
+      bye: "BYE",
+    });
+  });
+
+  test("object matched when callback is lowercase", () => {
+    expect(
+      objOfMatched(["hi", "bye"], ["HI", "BYE"], convertLowerCase)
+    ).toEqual({
+      hi: "HI",
+      bye: "BYE",
+    });
   });
 });
