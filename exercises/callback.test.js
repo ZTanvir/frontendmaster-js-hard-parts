@@ -10,6 +10,7 @@ import {
   union,
   objOfMatched,
   multiMap,
+  objectFilter,
 } from "./callback";
 
 describe("Add two with input", () => {
@@ -155,10 +156,29 @@ describe("extension 5 obj matched", () => {
     });
   });
 });
+
 describe("extension 6 multiMap", () => {
   test("object matched with callback conditions", () => {
     expect(
       multiMap(["food"], [(str) => str.toUpperCase(), (str) => str + str])
     ).toEqual({ food: ["FOOD", "foodfood"] });
+  });
+});
+
+describe("extension 7 object filter", () => {
+  test("return object based on matched value between callback and obj value", () => {
+    expect(
+      objectFilter(
+        {
+          London: "LONDON",
+          Paris: "PARIS",
+          Tokyo: "Japan",
+        },
+        (city) => city.toUpperCase()
+      )
+    ).toEqual({
+      London: "LONDON",
+      Paris: "PARIS",
+    });
   });
 });

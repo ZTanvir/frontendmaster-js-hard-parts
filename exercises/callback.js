@@ -101,6 +101,19 @@ function multiMap(array = [], callbackArray = []) {
   return mappedObj;
 }
 
+// Extension 7: objectFilter
+
+function objectFilter(obj, callbackFunc) {
+  const filterObj = {};
+  for (let key in obj) {
+    const value = callbackFunc(obj[key]);
+    if (obj[key] === value) {
+      filterObj[key] = value;
+    }
+  }
+  return filterObj;
+}
+
 export {
   addTwo,
   addS,
@@ -112,4 +125,5 @@ export {
   union,
   objOfMatched,
   multiMap,
+  objectFilter,
 };
