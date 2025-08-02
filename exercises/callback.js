@@ -42,4 +42,34 @@ function reduce(array = [], callback, initialValue) {
   return result;
 }
 
-export { addTwo, addS, map, foreach, mapWith, reduce };
+// Extension 3: intersection
+function intersection(arrays = [[], []]) {
+  let intersectionElements = [];
+  for (let i = 0; i < arrays[0].length; i++) {
+    let isElementIntersect = false;
+    for (let j = 1; j < arrays.length; j++) {
+      // check element present on remaining arrays
+      if (arrays[j].includes(arrays[0][i])) {
+        isElementIntersect = true;
+      } else {
+        isElementIntersect = false;
+      }
+    }
+    if (isElementIntersect) {
+      // when item avilable in remaining arrays
+      intersectionElements.push(arrays[0][i]);
+    }
+  }
+  return intersectionElements;
+}
+
+// Extension 4: union
+
+function union(arrays = [[], []]) {
+  return arrays.reduce((acc, cur) => {
+    const newElements = cur.filter((item) => !acc.includes(item));
+    return acc.concat(newElements);
+  });
+}
+
+export { addTwo, addS, map, foreach, mapWith, reduce, intersection, union };

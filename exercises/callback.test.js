@@ -1,5 +1,14 @@
 import { describe, expect, test } from "vitest";
-import { addS, addTwo, map, foreach, mapWith, reduce } from "./closures";
+import {
+  addS,
+  addTwo,
+  map,
+  foreach,
+  mapWith,
+  reduce,
+  intersection,
+  union,
+} from "./callback";
 
 describe("Add two with input", () => {
   test("add two", () => {
@@ -30,7 +39,7 @@ describe("Add 2 to the end of the inputs", () => {
 // describe("Apply callback action to array", () => {
 //   const toLowerCase = (input) => input.toLowerCase();
 
-//   test("make array irems lowercase", () => {
+//   test("make array items lowercase", () => {
 //     expect(foreach(["A", "B", "c"], toLowerCase)).toEqual(["a", "b", "c"]);
 //   });
 // });
@@ -40,10 +49,11 @@ describe("extension 1", () => {
   test("make array items lowercase", () => {
     expect(mapWith(["A", "B", "c"], toLowerCase)).toEqual(["a", "b", "c"]);
   });
-  test("make array not upercase", () => {
+  test("make array not uppercase", () => {
     expect(mapWith(["A", "B", "c"], toLowerCase)).not.toEqual(["A", "B", "c"]);
   });
 });
+
 describe("extension 2", () => {
   const addition = (input, increaseBy) => increaseBy + input;
   const subtraction = (input, decreaseBy) => decreaseBy - input;
@@ -53,5 +63,65 @@ describe("extension 2", () => {
   });
   test("Subtract total", () => {
     expect(reduce([1, 2, 3, 4], subtraction, 0)).toBe(-10);
+  });
+});
+
+describe("extension 3", () => {
+  test("intersection ", () => {
+    expect(
+      intersection([
+        [5, 10, 15],
+        [15, 5, 7],
+        [15, 5],
+      ])
+    ).toEqual([5, 15]);
+  });
+  test("intersection not found ", () => {
+    expect(
+      intersection([
+        [5, 10, 15],
+        [151, 45, 7],
+        [157, 75],
+      ])
+    ).toEqual([]);
+  });
+
+  test("intersection not found ", () => {
+    expect(
+      intersection([
+        [5, 10, 15],
+        [5, 10, 7],
+        [157, 75],
+      ])
+    ).toEqual([]);
+  });
+});
+
+describe("extension 4 union", () => {
+  test("expect [1,2,3,4]", () => {
+    expect(union([[1, 2], [2, 3], [4]])).toEqual([1, 2, 3, 4]);
+  });
+  test("expect [1,2]", () => {
+    expect(
+      union([
+        [1, 2],
+        [1, 2],
+        [1, 2],
+      ])
+    ).toEqual([1, 2]);
+  });
+
+  test("expect [1,2]", () => {
+    expect(union([[1, 2], [], []])).toEqual([1, 2]);
+  });
+
+  test("expect [1,2,3,4,5,6]", () => {
+    expect(
+      union([
+        [1, 2],
+        [3, 4],
+        [5, 6],
+      ])
+    ).toEqual([1, 2, 3, 4, 5, 6]);
   });
 });
