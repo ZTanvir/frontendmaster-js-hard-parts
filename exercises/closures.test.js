@@ -1,5 +1,10 @@
 import { describe, test, expect, beforeEach, vitest, afterEach } from "vitest";
-import { createFunction, createFunctionPrinter, outer } from "./closures";
+import {
+  createFunction,
+  createFunctionPrinter,
+  outer,
+  addByX,
+} from "./closures";
 
 describe("Challenge 1", () => {
   let logSpy;
@@ -45,5 +50,14 @@ describe("Challenge 3", () => {
 
     expect(counterA()).toBe(3);
     expect(counterB()).toBe(1);
+  });
+});
+
+describe("Challenge 4", () => {
+  const addByTwo = addByX(2);
+
+  test("add x with inner function input", () => {
+    expect(addByTwo(1)).toBe(3);
+    expect(addByTwo(5)).toBe(7);
   });
 });

@@ -23,4 +23,13 @@ function outer() {
   return incrementCounter;
 }
 
-export { createFunction, createFunctionPrinter, outer };
+// Challenge 4: Add by X
+
+function addByX(x) {
+  function operation(input) {
+    return input + x;
+  }
+  return operation;
+}
+
+export { createFunction, createFunctionPrinter, outer, addByX };
