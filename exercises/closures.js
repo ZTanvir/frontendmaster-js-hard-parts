@@ -61,4 +61,9 @@ function after(count, func) {
   return callAfter;
 }
 
+// Challenge 7: Delay
+function delay(func, wait, ...args) {
+  setTimeout(() => func(...args), wait);
+}
+
 export { createFunction, createFunctionPrinter, outer, addByX, once, after };
