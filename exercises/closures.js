@@ -32,4 +32,18 @@ function addByX(x) {
   return operation;
 }
 
-export { createFunction, createFunctionPrinter, outer, addByX };
+function once(callbackFunc) {
+  let count = 0;
+  let result = 0;
+  function calculation(input) {
+    if (count === 0) {
+      result = callbackFunc(input);
+      count++;
+      return result;
+    }
+    return result;
+  }
+  return calculation;
+}
+
+export { createFunction, createFunctionPrinter, outer, addByX, once };

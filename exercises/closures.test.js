@@ -4,6 +4,7 @@ import {
   createFunctionPrinter,
   outer,
   addByX,
+  once,
 } from "./closures";
 
 describe("Challenge 1", () => {
@@ -59,5 +60,21 @@ describe("Challenge 4", () => {
   test("add x with inner function input", () => {
     expect(addByTwo(1)).toBe(3);
     expect(addByTwo(5)).toBe(7);
+  });
+});
+
+describe("Challenge 5", () => {
+  const addByTwo = addByX(2);
+  const onceAddByTwo = once(addByTwo);
+
+  test("callback function will run.Once return 6", () => {
+    expect(onceAddByTwo(4)).toBe(6);
+  });
+
+  test("callback function will not.Once return 100", () => {
+    expect(onceAddByTwo(100)).toBe(6);
+  });
+  test("callback function will not run.Once return 9001", () => {
+    expect(onceAddByTwo(9001)).toBe(6);
   });
 });
