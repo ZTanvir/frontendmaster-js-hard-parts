@@ -5,6 +5,7 @@ import {
   outer,
   addByX,
   once,
+  after,
 } from "./closures";
 
 describe("Challenge 1", () => {
@@ -76,5 +77,37 @@ describe("Challenge 5", () => {
   });
   test("callback function will not run.Once return 9001", () => {
     expect(onceAddByTwo(9001)).toBe(6);
+  });
+});
+
+describe("Challenge 6", () => {
+  const afterCalled = after(3, () => console.log("hello"));
+  let logSpy;
+  beforeEach(() => {
+    logSpy = vitest.spyOn(console, "log");
+  });
+  afterEach(() => {
+    logSpy.mockRestore();
+  });
+
+  test("No output", () => {
+    afterCalled();
+    expect(logSpy).not.toBeCalled();
+  });
+  test("No output", () => {
+    afterCalled();
+    expect(logSpy).not.toBeCalled();
+  });
+  test("hello", () => {
+    afterCalled();
+    expect(logSpy).toBeCalled();
+    expect(logSpy).toBeCalledWith("hello");
+    expect(logSpy).toBeCalledTimes(1);
+  });
+  test("hello", () => {
+    afterCalled();
+    expect(logSpy).toBeCalled();
+    expect(logSpy).toBeCalledWith("hello");
+    expect(logSpy).toBeCalledTimes(1);
   });
 });

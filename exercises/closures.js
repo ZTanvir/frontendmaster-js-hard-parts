@@ -31,6 +31,7 @@ function addByX(x) {
   }
   return operation;
 }
+// Challenge 5: Once
 
 function once(callbackFunc) {
   let count = 0;
@@ -46,4 +47,18 @@ function once(callbackFunc) {
   return calculation;
 }
 
-export { createFunction, createFunctionPrinter, outer, addByX, once };
+// Challenge 6:After
+function after(count, func) {
+  let totalCount = count;
+  let startCount = 0;
+  function callAfter() {
+    startCount += 1;
+
+    if (startCount >= totalCount) {
+      func();
+    }
+  }
+  return callAfter;
+}
+
+export { createFunction, createFunctionPrinter, outer, addByX, once, after };
