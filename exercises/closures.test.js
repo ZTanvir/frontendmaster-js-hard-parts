@@ -6,6 +6,7 @@ import {
   addByX,
   once,
   after,
+  rollCall,
 } from "./closures";
 
 describe("Challenge 1", () => {
@@ -108,6 +109,42 @@ describe("Challenge 6", () => {
     afterCalled();
     expect(logSpy).toBeCalled();
     expect(logSpy).toBeCalledWith("hello");
+    expect(logSpy).toBeCalledTimes(1);
+  });
+});
+
+describe("Challenge 8", () => {
+  const rollCaller = rollCall(["Victoria", "Juan", "Ruth"]);
+  let logSpy;
+  beforeEach(() => {
+    logSpy = vitest.spyOn(console, "log");
+  });
+  afterEach(() => {
+    logSpy.mockRestore();
+  });
+
+  test("print Victoria", () => {
+    rollCaller();
+    expect(logSpy).toBeCalled();
+    expect(logSpy).toBeCalledWith("Victoria");
+    expect(logSpy).toBeCalledTimes(1);
+  });
+  test("print Juan", () => {
+    rollCaller();
+    expect(logSpy).toBeCalled();
+    expect(logSpy).toBeCalledWith("Juan");
+    expect(logSpy).toBeCalledTimes(1);
+  });
+  test("print Ruth", () => {
+    rollCaller();
+    expect(logSpy).toBeCalled();
+    expect(logSpy).toBeCalledWith("Ruth");
+    expect(logSpy).toBeCalledTimes(1);
+  });
+  test("print Everyone accounted for", () => {
+    rollCaller();
+    expect(logSpy).toBeCalled();
+    expect(logSpy).toBeCalledWith("Everyone accounted for");
     expect(logSpy).toBeCalledTimes(1);
   });
 });

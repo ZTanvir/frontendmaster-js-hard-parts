@@ -66,4 +66,27 @@ function delay(func, wait, ...args) {
   setTimeout(() => func(...args), wait);
 }
 
-export { createFunction, createFunctionPrinter, outer, addByX, once, after };
+// Challenge 8:Roll Call
+function rollCall(names) {
+  let count = 0;
+  function studentStatus() {
+    if (count >= names.length) {
+      console.log("Everyone accounted for");
+    } else {
+      console.log(names[count]);
+    }
+    count += 1;
+  }
+
+  return studentStatus;
+}
+
+export {
+  createFunction,
+  createFunctionPrinter,
+  outer,
+  addByX,
+  once,
+  after,
+  rollCall,
+};
