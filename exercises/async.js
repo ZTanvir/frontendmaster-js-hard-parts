@@ -42,3 +42,18 @@ function everyXsecsForYsecs(func, interval, duration) {
   const intervalId = setInterval(func, interval);
   setTimeout(() => clearInterval(intervalId), duration);
 }
+
+// Challenge 7: Countdown Logger
+function delayCounter(target, wait) {
+  let counter = 0;
+  function increment() {
+    const intervalId = setInterval(() => {
+      counter++;
+      console.log("log", counter);
+      if (counter === target) {
+        clearInterval(intervalId);
+      }
+    }, wait);
+  }
+  return increment;
+}
