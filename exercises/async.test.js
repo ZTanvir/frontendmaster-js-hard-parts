@@ -15,7 +15,6 @@ describe("challenge 1", () => {
 
   test("Log Partnah first then Howdy", () => {
     testMe();
-
     expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 0);
   });

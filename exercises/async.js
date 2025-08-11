@@ -30,9 +30,15 @@ function brokenRecord() {
 
 // Challenge 5: Limited Repeats
 function limitedRepeat() {
-  const id = setInterval(() => {
-    console.log("hi for now");
-  }, 1000);
-  setTimeout(() => clearInterval(id), 5001);
+  const interval = setInterval(() => console.log("hi for now"), 1000);
+  setTimeout(() => clearInterval(interval), 5000);
 }
-limitedRepeat();
+
+// Challenge 6: Flexible Timer
+function theEnd() {
+  console.log("This is the end!");
+}
+function everyXsecsForYsecs(func, interval, duration) {
+  const intervalId = setInterval(func, interval);
+  setTimeout(() => clearInterval(intervalId), duration);
+}
