@@ -32,12 +32,12 @@ const vicky = makePerson('Vicky', 24);
 
 const personStore = {
     // add code here
-
+    greet: function () { console.log("hello") }
 
 };
 
 // /********* Uncomment this line to test your work! *********/
-// personStore.greet(); // -> Logs 'hello'
+personStore.greet(); // -> Logs 'hello'
 
 
 
