@@ -98,8 +98,10 @@ const simon = new PersonConstructor;
 
 function personFromConstructor(name, age) {
     // add code here
-
-
+    const person = new PersonConstructor()
+    person.name = name
+    person.age = age
+    return person
 }
 
 const mike = personFromConstructor('Mike', 30);
