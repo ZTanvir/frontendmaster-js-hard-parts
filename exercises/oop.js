@@ -37,7 +37,7 @@ const personStore = {
 };
 
 // /********* Uncomment this line to test your work! *********/
-personStore.greet(); // -> Logs 'hello'
+// personStore.greet(); // -> Logs 'hello'
 
 
 
@@ -45,8 +45,10 @@ personStore.greet(); // -> Logs 'hello'
 
 function personFromPersonStore(name, age) {
     // add code here
-
-
+    const person = Object.create(personStore)
+    person.name = name
+    person.age = age
+    return person
 }
 
 const sandra = personFromPersonStore('Sandra', 26);
