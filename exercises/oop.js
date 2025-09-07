@@ -116,7 +116,9 @@ const mike = personFromConstructor('Mike', 30);
 
 /*** CHALLENGE 7 ***/
 // add code here
-
+PersonConstructor.prototype.introduce = function () {
+    console.log(`Hi, my name is ${this.name}`);
+}
 
 // mike.introduce(); // -> Logs 'Hi, my name is Mike'
 
