@@ -64,6 +64,9 @@ const sandra = personFromPersonStore('Sandra', 26);
 /*** CHALLENGE 4 ***/
 
 // add code here
+personStore.introduce = function () {
+    console.log(`Hi, my name is ${this.name}`);
+}
 
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
