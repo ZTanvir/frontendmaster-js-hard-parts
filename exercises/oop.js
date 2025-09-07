@@ -82,8 +82,9 @@ personStore.introduce = function () {
 
 function PersonConstructor() {
     // add code here
-
-
+    this.greet = function () {
+        console.log("hello");
+    }
 }
 
 
