@@ -130,14 +130,15 @@ PersonConstructor.prototype.introduce = function () {
 /*** CHALLENGE 8 ***/
 
 class PersonClass {
-    constructor() {
+    constructor(name) {
         // add code here
-
-
+        this.name = name
     }
 
     // add code here
-
+    greet() {
+        console.log("hello")
+    }
 }
 
 
@@ -150,6 +151,15 @@ const george = new PersonClass;
 /*** CHALLENGE 9 ***/
 
 // add code here
+class DeveloperClass extends PersonClass {
+    constructor(name, age) {
+        super(name)
+        this.age = age
+    }
+    introduce() {
+        console.log(`Hello World, my name is ${this.name}.`);
+    }
+}
 
 
 // /********* Uncomment these lines to test your work! *********/
