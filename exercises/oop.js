@@ -189,9 +189,7 @@ function userFactory(name, score) {
 
 /*** CHALLENGE 10 ***/
 
-const adminFunctionStore = {
-    // add code here
-}
+const adminFunctionStore = Object.create(userFunctionStore)
 
 /*** CHALLENGE 11, 12, 13 ***/
 
