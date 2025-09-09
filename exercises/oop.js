@@ -233,8 +233,8 @@ const robotMixin = {
 
 let robotFido = new Dog();
 
-// robotFido = /* Put code here to give Fido robot skills */;
+robotFido = Object.assign(robotFido, robotMixin);
 
 // /********* Uncomment to test your work! *********/
-// robotFido.speak() // -> Logs "I am made of metal"
+robotFido.speak() // -> Logs "I am made of metal"
 
