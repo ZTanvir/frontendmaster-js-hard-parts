@@ -195,8 +195,15 @@ const adminFunctionStore = Object.create(userFunctionStore)
 
 function adminFactory(name, score) {
     // add code here
+    const admin = userFactory(name, score)
+    admin.type = "admin"
+    return admin
 }
 
+userFunctionStore.sharePublicMessage = function () {
+    console.log(`Welcome users!`);
+
+}
 /*** CHALLENGE 14 ***/
 /* Put code here for a method called sharePublicMessage*/
 
