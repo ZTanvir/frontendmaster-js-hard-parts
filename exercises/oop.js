@@ -200,12 +200,11 @@ function adminFactory(name, score) {
     return admin
 }
 
-userFunctionStore.sharePublicMessage = function () {
-    console.log(`Welcome users!`);
-
-}
 /*** CHALLENGE 14 ***/
 /* Put code here for a method called sharePublicMessage*/
+userFunctionStore.sharePublicMessage = function () {
+    console.log(`Welcome users!`);
+}
 
 const adminFromFactory = adminFactory("Eva", 5);
 
